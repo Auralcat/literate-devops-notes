@@ -1,5 +1,4 @@
 #+TITLE: Vagrant
-#+AUTHOR: Auralcat
 
 * What it is
   Create virtual machines from preconfigured boxes
