@@ -89,59 +89,47 @@
    vagrant up
    #+END_SRC
 ** Global configuration
+   VCCW has a series of global parameters which work with all virtual machines.
+   They can be specified in ~/.vccw/config.yml like following:
+   #+BEGIN_SRC yaml
+   memory: 1024
+   cpus: 2
+   lang: ja
+   theme_unit_test: true
+   #+END_SRC
+** Customizable variables
+   See provision/default.yml.
+** Run pre/post provisioning scripts
+   You can place shell scripts, so it will run at pre/post provisioning.
 
-VCCW has a series of global parameters which work with all virtual machines.
+   provision-pre.sh - Run before chef provisioning.
+   provision-post.sh - Run after chef provisioning.
 
-They can be specified ~/.vccw/config.yml like following.
+   Example shell script.
 
-memory: 1024
-cpus: 2
-lang: ja
-theme_unit_test: true
+   provision-post.sh - It will run after provisioning.
+   #+BEGIN_SRC sh
+   #!/usr/bin/env bash
+   set -ex
+   /usr/local/bin/wp --path=/var/www/wordpress plugin install contact-form-7 --activate
+   #+END_SRC
+   This example script will install and activate plugin “Contact Form 7” by WP-CLI.
+** Customize with Ansible
+   Also, you can use Ansible.
 
-Customizable variables
+   provision-post.yml - It will run after provisioning.
+   #+BEGIN_SRC yaml
+   - hosts: all
+     become: yes
 
-See provision/default.yml.
+     tasks:
 
-Back to top
-Run pre/post provisioning scripts
-
-You can place shell scripts, so it will run at pre/post provisioning.
-
-    provision-pre.sh - Run before chef provisioning.
-    provision-post.sh - Run after chef provisioning.
-
-Example shell script.
-
-provision-post.sh - It will run after provisioning.
-
-#!/usr/bin/env bash
-
-set -ex
-
-/usr/local/bin/wp --path=/var/www/wordpress plugin install contact-form-7 --activate
-
-This example script will install and activate plugin “Contact Form 7” by WP-CLI.
-Customize with Ansible
-
-Also, you can use Ansible.
-
-provision-post.yml - It will run after provisioning.
-
-- hosts: all
-  become: yes
-
-  tasks:
-
-  - name: Ensure nginx is installed
-    apt: pkg=nginx state=latest
-
-Back to top
-Checking Email with MailCatcher
-
-MailCatcher re-routes all WordPress emails to Mailcatcher.
-
-Please visit: http://vccw.test:1080/
+     - name: Ensure nginx is installed
+       apt: pkg=nginx state=latest
+   #+END_SRC
+** Checking Email with MailCatcher
+   MailCatcher re-routes all WordPress emails to Mailcatcher.
+   Please visit: http://vccw.test:1080/
 
 * WP-CLI
   Community command that generates a VCCW environment.
