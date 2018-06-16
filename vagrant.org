@@ -53,28 +53,42 @@
     #+BEGIN_SRC sh
     vagrant ssh
     #+END_SRC
-Customizing
+** Customizing
+   VCCW is configured for those developing WordPress plugins, themes
+   or websites.
+   It includes many customizable variables for setting the WordPress
+   version (or beta release), language, hostname, subdirectory, admin
+   credentials, default plugins, default theme, multisite, SSL and
+   other options.
+   These variables give you a lot of flexibility in tailoring your
+   development environment to your specific needs.
 
-VCCW is configured for those developing WordPress plugins, themes or websites. It includes many customizable variables for setting the WordPress version (or beta release), language, hostname, subdirectory, admin credentials, default plugins, default theme, multisite, SSL and other options. These variables give you a lot of flexibility in tailoring your development environment to your specific needs.
+   Copy provision/default.yml to site.yml like following:
+   #+BEGIN_SRC sh
+   cp provision/default.yml site.yml
+   #+END_SRC
 
-Copy provision/default.yml to site.yml like following.
+   Then edit the site.yml and run:
+   #+BEGIN_SRC sh
+   vagrant up
+   #+END_SRC
 
-$ cp provision/default.yml site.yml
+   Or place the site.yml and put variables like following:
+   #+BEGIN_SRC yaml
+   hostname: example.com
+   ip: 192.168.33.11
+   lang: ja
+   plugins:
+     - contact-form-7
+     - jetpack
+   theme: twentysixteen
+   #+END_SRC
 
-Then edit the site.yml and run vagrant up.
-
-Or place the site.yml and put variables like following.
-
-hostname: example.com
-ip: 192.168.33.11
-lang: ja
-plugins:
-  - contact-form-7
-  - jetpack
-theme: twentysixteen
-
-Then just run vagrant up.
-Global configuration
+   Then just run:
+   #+BEGIN_SRC sh
+   vagrant up
+   #+END_SRC
+** Global configuration
 
 VCCW has a series of global parameters which work with all virtual machines.
 
