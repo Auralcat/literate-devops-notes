@@ -53,3 +53,107 @@
     #+BEGIN_SRC sh
     vagrant ssh
     #+END_SRC
+Customizing
+
+VCCW is configured for those developing WordPress plugins, themes or websites. It includes many customizable variables for setting the WordPress version (or beta release), language, hostname, subdirectory, admin credentials, default plugins, default theme, multisite, SSL and other options. These variables give you a lot of flexibility in tailoring your development environment to your specific needs.
+
+Copy provision/default.yml to site.yml like following.
+
+$ cp provision/default.yml site.yml
+
+Then edit the site.yml and run vagrant up.
+
+Or place the site.yml and put variables like following.
+
+hostname: example.com
+ip: 192.168.33.11
+lang: ja
+plugins:
+  - contact-form-7
+  - jetpack
+theme: twentysixteen
+
+Then just run vagrant up.
+Global configuration
+
+VCCW has a series of global parameters which work with all virtual machines.
+
+They can be specified ~/.vccw/config.yml like following.
+
+memory: 1024
+cpus: 2
+lang: ja
+theme_unit_test: true
+
+Customizable variables
+
+See provision/default.yml.
+
+Back to top
+Run pre/post provisioning scripts
+
+You can place shell scripts, so it will run at pre/post provisioning.
+
+    provision-pre.sh - Run before chef provisioning.
+    provision-post.sh - Run after chef provisioning.
+
+Example shell script.
+
+provision-post.sh - It will run after provisioning.
+
+#!/usr/bin/env bash
+
+set -ex
+
+/usr/local/bin/wp --path=/var/www/wordpress plugin install contact-form-7 --activate
+
+This example script will install and activate plugin “Contact Form 7” by WP-CLI.
+Customize with Ansible
+
+Also, you can use Ansible.
+
+provision-post.yml - It will run after provisioning.
+
+- hosts: all
+  become: yes
+
+  tasks:
+
+  - name: Ensure nginx is installed
+    apt: pkg=nginx state=latest
+
+Back to top
+Checking Email with MailCatcher
+
+MailCatcher re-routes all WordPress emails to Mailcatcher.
+
+Please visit: http://vccw.test:1080/
+
+* WP-CLI
+  Community command that generates a VCCW environment.
+
+  https://github.com/vccw-team/scaffold-vccw
+
+** How to install
+   #+BEGIN_SRC sh
+   wp package install vccw/scaffold-vccw:@stable
+   #+END_SRC
+** How to use
+   Generate a VCCW environment into the wp.dev directory.
+   #+BEGIN_SRC sh
+   wp scaffold vccw wp.dev
+   cd wp.dev
+   vagrant up
+   #+END_SRC
+** Usage
+   #+BEGIN_SRC sh
+   wp help scaffold vccw
+   #+END_SRC
+** Examples
+   #+BEGIN_SRC sh results :raw
+   wp scaffold vccw wordpress.dev
+   #+END_SRC
+
+   #+BEGIN_SRC sh
+   wp scaffold vccw wordpress.dev --lang=ja
+   #+END_SRC
