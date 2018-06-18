@@ -58,3 +58,14 @@
     MINUS
     SELECT columns FROM table_2 [WHERE conditions];
     #+END_SRC
+** Rename tables
+   With ALTER you can rename only one table.
+   RENAME TABLE allows multiple renames.
+   You must have ALTER and DROP privileges for the original table, and
+   CREATE and INSERT privileges for the new table.
+   #+BEGIN_SRC sql
+   ALTER TABLE old_table RENAME new_table;
+   RENAME TABLE old_table1 TO new_table1,
+                old_table2 TO new_table2,
+                old_table3 TO new_table3;
+   #+END_SRC
