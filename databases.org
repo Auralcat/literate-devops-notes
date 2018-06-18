@@ -17,11 +17,25 @@
    - INSERT: New user can insert rows into tables.
    - SELECT: New user can execute the SELECT command to read through databases.
    - UPDATE: New user can update table rows.
+   - USAGE: New user doesn't have any special privileges.
    - OPTION: New user can grant or remove other users' privileges.
 
    After that, execute this to apply the changes.
    #+BEGIN_SRC sql
    FLUSH PRIVILEGES;
+   #+END_SRC
+** Show user's privileges
+   You can use '%' instead of 'host' to show privileges for all hosts.
+   #+BEGIN_SRC sql
+   SHOW GRANTS FOR 'username'@'host';
+   #+END_SRC
+** Get database list in the server
+   #+BEGIN_SRC sql
+   SHOW DATABASES;
+   #+END_SRC
+** Get table list in database
+   #+BEGIN_SRC sql
+   SHOW TABLES;
    #+END_SRC
 ** Set operations
 *** Union
@@ -68,9 +82,4 @@
    RENAME TABLE old_table1 TO new_table1,
                 old_table2 TO new_table2,
                 old_table3 TO new_table3;
-   #+END_SRC
-** Show user's privileges
-   You can use '%' instead of 'host' to show privileges for all hosts.
-   #+BEGIN_SRC sql
-   SHOW GRANTS FOR 'username'@'host';
    #+END_SRC
