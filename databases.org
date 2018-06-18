@@ -1,0 +1,26 @@
+* SQL
+** Create new user
+   First create a new login:
+   #+BEGIN_SRC sql results :raw
+   CREATE LOGIN login_name WITH PASSWORD { password | hashed_password HASHED } [ MUST_CHANGE ]
+   [ , SID = sid_value
+     | DEFAULT_DATABASE = database_name
+     | DEFAULT_LANGUAGE = language_name
+     | CHECK_EXPIRATION = { ON | OFF }
+     | CHECK_POLICY = { ON | OFF }
+     | CREDENTIAL = credential_name ];
+   #+END_SRC
+   Parameters:
+   - login_name: Name of the login
+   - database_name: the default database to assign to the login.
+   - language_name: the default language to assign to the login.
+   - CHECK_EXPIRATION: By default, it's set to OFF. This option
+     determines whether password expiration policy is enforced.
+   - password: the password assigned to the login.
+   - hashed_password: the hashed value of the password to assign to
+     the login.
+   - MUST_CHANGE: It is used when you want to force the password to be
+     changed the first time the login is used.
+   - sid_value: the GUID of the login. If this parameter is omitted,
+     SQL Server will assign a GUID to the login.
+   - credential_name: the name of the credential to assign to the login.
