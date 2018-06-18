@@ -23,3 +23,23 @@
    #+BEGIN_SRC sql
    FLUSH PRIVILEGES;
    #+END_SRC
+** Set operations
+*** Union
+    #+BEGIN_SRC sql results :raw
+    SELECT columns FROM table_1 [WHERE conditions]
+    UNION
+    SELECT columns FROM table_2 [WHERE conditions];
+    #+END_SRC
+*** Intersection
+    *MySQL does not support this operation.*
+    #+BEGIN_SRC sql
+    SELECT columns FROM table_1 [WHERE conditions]
+    INTERSECT
+    SELECT columns FROM table_2 [WHERE conditions];
+    #+END_SRC
+*** Difference
+    #+BEGIN_SRC sql
+    SELECT columns FROM table_1 [WHERE conditions]
+
+    SELECT columns FROM table_2 [WHERE conditions];
+    #+END_SRC
