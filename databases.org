@@ -45,6 +45,13 @@
     WHERE table_2.column IS NULL;
     #+END_SRC
 
+    If you add NOT in the end, you get the common fields:
+    #+BEGIN_SRC sql
+    SELECT DISTINCT columns FROM table_1 [WHERE conditions]
+    LEFT JOIN table_2 ON table_1.column = table_2.column
+    WHERE table_2.column IS NOT NULL;
+    #+END_SRC
+
     Other DB systems:
     #+BEGIN_SRC sql
     SELECT columns FROM table_1 [WHERE conditions]
