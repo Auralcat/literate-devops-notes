@@ -38,8 +38,16 @@
     SELECT columns FROM table_2 [WHERE conditions];
     #+END_SRC
 *** Difference
+    For MySQL:
+    #+BEGIN_SRC sql
+    SELECT DISTINCT columns FROM table_1 [WHERE conditions]
+    LEFT JOIN table_2 ON table_1.column = table_2.column
+    WHERE table_2.column IS NULL;
+    #+END_SRC
+
+    Other DB systems:
     #+BEGIN_SRC sql
     SELECT columns FROM table_1 [WHERE conditions]
-
+    MINUS
     SELECT columns FROM table_2 [WHERE conditions];
     #+END_SRC
