@@ -24,6 +24,12 @@
    #+BEGIN_SRC sql
    FLUSH PRIVILEGES;
    #+END_SRC
+** Create database
+   To create a database with dashes (-) in the name, surround it with
+   backticks (`):
+   #+BEGIN_SRC sql
+   CREATE DATABASE db_name;
+   #+END_SRC
 ** Show user's privileges
    You can use '%' instead of 'host' to show privileges for all hosts.
    #+BEGIN_SRC sql
