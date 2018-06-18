@@ -6,6 +6,18 @@
 * Configuring the instance's name
   You need to change the hostname in site.yml.
 
+* Transferring files
+  You need the scp plugin, install it like so:
+  #+BEGIN_SRC sh
+  vagrant plugin install vagrant-scp
+  #+END_SRC
+
+  Usage:
+  #+BEGIN_SRC sh
+  vagrant scp <file/folder_to_transfer> <vm_name>:<destination>
+  #+END_SRC
+
+
 * Getting started (WordPress)
   [[http://vccw.cc/][Reference]]
 ** Install VirtualBox
