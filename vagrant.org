@@ -17,6 +17,19 @@
   vagrant scp <file/folder_to_transfer> <vm_name>:<destination>
   #+END_SRC
 
+* Destroying a VM
+  #+BEGIN_SRC sh
+  vagrant destroy
+  #+END_SRC
+
+  It's important that you don't delete the folder before executing the
+  previous command. If you do so, the VM will be orphaned or
+  zombified, then you'll need to clean it up using:
+
+  #+BEGIN_SRC sh
+  vboxmanage list vms # gets all registered VMs
+  vboxmanage unregister --delete <vm_name|vm_id_in_braces>
+  #+END_SRC
 
 * Getting started (WordPress)
   [[http://vccw.cc/][Reference]]
