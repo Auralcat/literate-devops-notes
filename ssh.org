@@ -1,0 +1,9 @@
+* What it is
+  Stands for Secure SHell, works with assymetric encription, meaning
+  there's a public key and a private key pair.
+  What you upload to servers (and download from them) is the *public key!*
+* Commands
+** Copy public key to server
+   #+BEGIN_SRC sh :results raw
+   ssh-copy-id <destination_server>
+   #+END_SRC
