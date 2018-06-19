@@ -7,3 +7,7 @@
    #+BEGIN_SRC sh :results raw
    ssh-copy-id <destination_server>
    #+END_SRC
+** Transfer files from one server to another
+   #+BEGIN_SRC sh
+   scp <source> <destination>
+   #+END_SRC

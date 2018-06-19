@@ -48,6 +48,7 @@
    #+END_SRC
 ** Download .zip
    [[https://github.com/vccw-team/vccw/releases/download/3.18.0/vccw-3.18.0.zip][Here]]
+** Copy default.yml to project's root folder and rename to site.yml
 ** Change into a new directory.
 ** Start a Vagrant environment.
    #+BEGIN_SRC sh
