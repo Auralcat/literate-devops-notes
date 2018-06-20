@@ -83,6 +83,10 @@
     MINUS
     SELECT columns FROM table_2 [WHERE conditions];
     #+END_SRC
+*** Cartesian Product
+    #+BEGIN_SRC sql
+    SELECT columns FROM table_1 [WHERE conditions] INNER JOIN table_2 [WHERE conditions]];
+    #+END_SRC
 ** Rename tables
    With ALTER you can rename only one table.
    RENAME TABLE allows multiple renames.
