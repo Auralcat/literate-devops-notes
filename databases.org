@@ -51,11 +51,16 @@
     SELECT columns FROM table_2 [WHERE conditions];
     #+END_SRC
 *** Intersection
-    *MySQL does not support this operation.*
     #+BEGIN_SRC sql
-    SELECT columns FROM table_1 [WHERE conditions]
+    SELECT DISTINCT columns FROM table_1 [WHERE conditions]
     INTERSECT
     SELECT columns FROM table_2 [WHERE conditions];
+    #+END_SRC
+
+    For MySQL:
+    #+BEGIN_SRC sql
+    SELECT DISTINCT columns FROM table_1 [WHERE conditions]
+    INNER JOIN table_2 [WHERE conditions];
     #+END_SRC
 *** Difference
     For MySQL:
@@ -77,6 +82,10 @@
     SELECT columns FROM table_1 [WHERE conditions]
     MINUS
     SELECT columns FROM table_2 [WHERE conditions];
+    #+END_SRC
+*** Cartesian Product
+    #+BEGIN_SRC sql
+    SELECT columns FROM table_1 [WHERE conditions] INNER JOIN table_2 [WHERE conditions]];
     #+END_SRC
 ** Rename tables
    With ALTER you can rename only one table.
