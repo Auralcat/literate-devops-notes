@@ -1,0 +1,4 @@
+* Erros e como arrumar
+** Não consigo salvar widgets novas no meu site!
+   - Vá em "Opções de tela" e ative o modo de acessibilidade. Isso
+     desabilita o AJAX. Acontece quando tem muitas widgets pra carregar.
