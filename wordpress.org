@@ -13,3 +13,6 @@
      Arquivos: 644
 ** Tem algumas partes do meu wp-admin que estão quebradas
    - Reinstale o core do WordPress pelo wp-admin mesmo, ou pelo wp-cli
+
+* Onde buscar ajuda
+** [[https://codex.wordpress.org/][WordPress Codex]]
