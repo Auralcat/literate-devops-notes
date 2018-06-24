@@ -11,3 +11,5 @@
      tiver acesso como root ao servidor):
      Pastas: 755
      Arquivos: 644
+** Tem algumas partes do meu wp-admin que estão quebradas
+   - Reinstale o core do WordPress pelo wp-admin mesmo, ou pelo wp-cli
