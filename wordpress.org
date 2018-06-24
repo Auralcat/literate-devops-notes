@@ -1,4 +1,13 @@
 * Erros e como arrumar
 ** Não consigo salvar widgets novas no meu site!
    - Vá em "Opções de tela" e ative o modo de acessibilidade. Isso
-     desabilita o AJAX. Acontece quando tem muitas widgets pra carregar.
+     desabilita o AJAX. Acontece quando tem muitas widgets pra
+     carregar.
+** Mudei o tema e as mudanças não estão aparecendo na página
+   - Se o site usar um plugin de cache, limpe ele e também limpe o
+     cache do navegador.
+** Não consigo acessar as pastas do WordPress depois de migrar pra outro servidor
+   - Mude as permissões da pasta pelo cliente de FTP (se você não
+     tiver acesso como root ao servidor):
+     Pastas: 755
+     Arquivos: 644
