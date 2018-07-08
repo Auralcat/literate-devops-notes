@@ -1,0 +1,25 @@
+* What it is
+* Configuring a virtual host under XAMPP
+  Edit the /opt/lampp/etc/httpd.conf first and allow virtual hosts
+  #+BEGIN_SRC org
+  # Virtual hosts
+  Include etc/extra/httpd-vhosts.conf
+  #+END_SRC
+
+  Then add your virtual host in /opt/lampp/etc/extra/httpd-vhosts.conf:
+  #+BEGIN_SRC sh
+  <VirtualHost *:80>
+      DocumentRoot "/opt/lampp/htdocs/root/of/your/site/"
+      ServerName your_server_name
+  </VirtualHost>
+  #+END_SRC
+
+  Add the server you registered in the previous step to /etc/hosts
+  #+BEGIN_SRC sh
+  loopback.address.goes.here (usually 127.0.0.1) your_server_name
+  #+END_SRC
+
+  Finally, restart XAMPP:
+  #+BEGIN_SRC sh
+  sudo /opt/lampp/xampp restart
+  #+END_SRC
